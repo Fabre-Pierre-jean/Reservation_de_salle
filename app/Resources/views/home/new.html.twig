@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Creation planning semaine N</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    <input type="submit" class="btn btn-success"  value="Create" />
+    {{ form_end(form) }}
+    <div>
+        <h1><span id="dispo"></span></h1>
+    </div>
+
+            <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('home_index') }}'" value="Back to the list" style="margin: 5px 0 0 0;"/>
+
+{% endblock %}
+

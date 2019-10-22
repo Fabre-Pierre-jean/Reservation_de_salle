@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formateurs list</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Firstname</th>
+                <th>Speciality</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formateur in formateurs %}
+            <tr>
+                <td>{{ formateur.name }}</td>
+                <td>{{ formateur.firstname }}</td>
+                <td>{{ formateur.speciality }}</td>
+                <td>
+                    <ul>
+                        <input type="button" class="btn btn-primary" onclick="window.location.href='{{ path('formateur_show', { 'id': formateur.id }) }}'" value="show" style="margin: 5px;"/>
+
+                        <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('formateur_edit', { 'id': formateur.id }) }}'" value="edit" style="margin: 5px;" />
+
+
+                        <input type="button" class="btn btn-danger" onclick="window.location.href='{{ path('formateur_delete', { 'id': formateur.id }) }}'" value="delete" style="margin: 5px;"/>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <input type="button" class="btn btn-success" onclick="window.location.href='{{ path('formateur_new')}}'" value="New Formateur" style="margin: 5px;"/>
+
+
+{% endblock %}

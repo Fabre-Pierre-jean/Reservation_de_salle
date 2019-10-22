@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promo</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ promo.id }}</td>
+            </tr>
+            <tr>
+                <th>Nbeleves</th>
+                <td>{{ promo.nbEleves }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ promo.titre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('promo_edit', { 'id': promo.id }) }}'" value="edit" style="margin: 5px;" />
+
+    {{ form_start(delete_form) }}
+    <input type="submit" class="btn btn-danger" value="Delete" style="margin: 5px;"/>
+    {{ form_end(delete_form) }}
+
+    <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('promo_index', { 'id': promo.id }) }}'" value="Back to the list" style="margin: 5px;"/>
+
+{% endblock %}

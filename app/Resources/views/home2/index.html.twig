@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Planning semaine N+1</h1>
+
+    <table class="table table-striped">
+        <thead class="bg-dark">
+        <tr>
+            <th class="col">Formateur</th>
+            <th class="col">Salle</th>
+            <th class="col">Type</th>
+            <th class="col">Promotion</th>
+            <th class="col">Jour</th>
+            <th class="col">Demi-Journée</th>
+            <th class="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for home2 in homes %}
+            <tr>
+                <td>{{ home2.formateur }}</td>
+                <td>{{ home2.salle }}</td>
+                <td>{{ home2.type }}</td>
+                <td>{{ home2.promo }}</td>
+                <td>{{ home2.day }}</td>
+                <td>{{ home2.halfDay }}</td>
+                <td>
+                    <ul>
+                        <input type="button" class="btn btn-primary" onclick="window.location.href='{{ path('home2_show', { 'id': home2.id }) }}'" value="show" style="margin: 5px;"/>
+
+                        <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('home2_edit', { 'id': home2.id }) }}'" value="edit" style="margin: 5px;" />
+
+
+                        <input type="button" class="btn btn-danger" onclick="window.location.href='{{ path('home2_delete', { 'id': home2.id }) }}'" value="delete" style="margin: 5px;"/>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <input type="button" class="btn btn-success" onclick="window.location.href='{{ path('home2_new')}}'" value="New reservation" style="margin: 5px;"/>
+
+{% endblock %}

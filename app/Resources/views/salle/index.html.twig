@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Salles list</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nbplaces</th>
+                <th>Numsalle</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for salle in salles %}
+            <tr>
+                <td>{{ salle.nbPlaces }}</td>
+                <td>{{ salle.numSalle }}</td>
+                <td>{{ salle.type }}</td>
+                <td>
+                    <ul>
+                        <input type="button" class="btn btn-primary" onclick="window.location.href='{{ path('salle_show', { 'id': salle.id }) }}'" value="show" style="margin: 5px;"/>
+
+                        <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('salle_edit', { 'id': salle.id }) }}'" value="edit" style="margin: 5px;" />
+
+
+                        <input type="button" class="btn btn-danger" onclick="window.location.href='{{ path('salle_delete', { 'id': salle.id }) }}'" value="delete" style="margin: 5px;"/>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <input type="button" class="btn btn-success" onclick="window.location.href='{{ path('salle_new')}}'" value="New salle" style="margin: 5px;"/>
+
+
+{% endblock %}

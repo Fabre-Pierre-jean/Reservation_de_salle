@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Home</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Salle</th>
+                <td>{{ home.salle }}</td>
+            </tr>
+            <tr>
+                <th>Promo</th>
+                <td>{{ home.promo }}</td>
+            </tr>
+            <tr>
+                <th>Formateur</th>
+                <td>{{ home.formateur }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ home.type }}</td>
+            </tr>
+            <tr>
+                <th>Demi journée</th>
+                <td>{{ home.halfDay }}</td>
+            </tr>
+            <tr>
+                <th>Jour</th>
+                <td>{{ home.day }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('home_edit', { 'id': home.id }) }}'" value="edit" style="margin: 5px;" />
+
+
+    {{ form_start(delete_form) }}
+    <input type="submit" class="btn btn-danger" value="Delete" style="margin: 5px;"/>
+    {{ form_end(delete_form) }}
+
+            <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('home_index', { 'id': home.id }) }}'" value="Back to the list" style="margin: 5px;"/>
+
+{% endblock %}

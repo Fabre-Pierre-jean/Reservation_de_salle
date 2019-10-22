@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Salle</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ salle.id }}</td>
+            </tr>
+            <tr>
+                <th>Nbplaces</th>
+                <td>{{ salle.nbPlaces }}</td>
+            </tr>
+            <tr>
+                <th>Numsalle</th>
+                <td>{{ salle.numSalle }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ salle.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('salle_edit', { 'id': home.id }) }}'" value="edit" style="margin: 5px;" />
+
+    {{ form_start(delete_form) }}
+    <input type="submit" class="btn btn-danger" value="Delete" style="margin: 5px;"/>
+    {{ form_end(delete_form) }}
+
+    <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('salle_index', { 'id': home.id }) }}'" value="Back to the list" style="margin: 5px;"/>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formateur creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    <input type="submit" class="btn btn-success"  value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('formateur_index') }}'" value="Back to the list" style="margin: 5px -40px;"/>
+        </li>
+    </ul>
+{% endblock %}

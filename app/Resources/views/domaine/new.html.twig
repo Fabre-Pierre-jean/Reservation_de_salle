@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Domaine creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    <input type="submit" class="btn btn-success"  value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('domaine_index') }}'" value="Back to the list" style="margin: 5px -40px;"/>
+
+    </ul>
+{% endblock %}

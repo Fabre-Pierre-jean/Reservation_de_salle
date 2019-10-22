@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Domaine</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ domaine.id }}</td>
+            </tr>
+            <tr>
+                <th>Spec</th>
+                <td>{{ domaine.spec }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="button" class="btn btn-warning" onclick="window.location.href='{{ path('domaine_edit', { 'id': domaine.id }) }}'" value="edit" style="margin: 5px;" />
+
+
+    {{ form_start(delete_form) }}
+    <input type="submit" class="btn btn-danger" value="Delete" style="margin: 5px;"/>
+    {{ form_end(delete_form) }}
+
+    <input type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('domaine_index', { 'id': domaine.id }) }}'" value="Back to the list" style="margin: 5px;"/>
+
+{% endblock %}
